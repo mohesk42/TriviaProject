@@ -64,6 +64,7 @@ class TriviaTestCase(unittest.TestCase):
 
         self.assertEqual(result.status_code, 200)
         self.assertEqual(data['success'], True)
+        self.assertEqual(data['deleted'], 5)
         self.assertEqual(question, None)
 
     def test_create_question(self):

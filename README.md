@@ -244,32 +244,71 @@ The API will return three error types when requests fail:
 
 ```
 {
-  "currentCategory": "Entertainment",
+    "success": true,
+    "deleted": 8
+}
+```
+
+#### POST '/search_questions'
+- General:
+    - Search questions by given search term.
+    - return list of questions.
+    - total number of questions found.
+ 
+- Sample: curl http://127.0.0.1:5000/search_questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "world"}'
+
+```
+{
   "questions": [
     {
-      "answer": "Apollo 13",
-      "category": 5,
-      "difficulty": 4,
-      "id": 2,
-      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
-    },
-    {
-      "answer": "Tom Cruise",
-      "category": 5,
-      "difficulty": 4,
-      "id": 4,
-      "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
-    },
-    {
-      "answer": "Edward Scissorhands",
-      "category": 5,
+      "answer": "Brazil",
+      "category": 6,
       "difficulty": 3,
-      "id": 6,
-      "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
+      "id": 10,
+      "question": "Which is the only team to play in every soccer World Cup tournament?"
+    },
+    {
+      "answer": "Uruguay",
+      "category": 6,
+      "difficulty": 4,
+      "id": 11,
+      "question": "Which country won the first ever soccer World Cup in 1930?"
     }
   ],
   "success": true,
-  "totalQuestions": 3
+  "totalQuestions": 2
+}
+```
+
+#### POST '/questions'
+- General:
+    - create new question.
+    - return sucess status
+ 
+- Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{ "question": "What is the tallest tower in the world?", "answer": "Khalifa tower", "difficulty": 2, "category": "2" }'
+
+```
+{
+  "success": true
+}
+```
+#### POST '/quizzes'
+- General:
+    - Get random question from category of the quiz.
+    - Return question not provided in the previous questions list.
+ 
+- Sample: curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions": [5, 6], "quiz_category": {"type": "Art", "id": "2"}}'
+
+```
+{
+  "question": {
+    "answer": "ee",
+    "category": 2,
+    "difficulty": 1,
+    "id": 29,
+    "question": "dfdf"
+  },
+  "success": true
 }
 ```
 

@@ -205,6 +205,24 @@ def create_app(test_config=None):
       questions = Question.query.all()
     else:
       questions = Question.query.filter_by(category=quiz_category['id']).all()
+    
+    numOfQuestions = len(questions)
+
+    indexToPick = []
+    for i in range(numOfQuestions):
+      if questions[i].id not in prev_questions:
+        indexToPick.append(i)
+
+    if len(indexToPick)==0:
+      return jsonify({
+        'success': True
+      })
+    else:
+      question = questions[random.choice(indexToPick)]
+      return jsonify({
+        'success': True,
+        'question': question.format()
+      })
 
 
   '''

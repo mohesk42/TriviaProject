@@ -30,6 +30,7 @@ def create_app(test_config=None):
     response.headers.add('Access-Control-Allow-Headers', 'GET, POST, PATCH, DELETE, OPTION')
     return response
 
+  #Get categories
   @app.route('/categories')
   def get_categories():
     categories = Category.query.all()
@@ -46,6 +47,7 @@ def create_app(test_config=None):
       'categories': category_dict
     })
 
+  #Get all questions
   @app.route('/questions')
   def get_questions():
     questions = Question.query.all()
@@ -65,7 +67,7 @@ def create_app(test_config=None):
       'questions': current_questions,
       'totalQuestions': totalQuestions,
       'categories': category_dict,
-      'currentCategory': 'all'
+      'currentCategory': 'all'  #all means no category is selected
     })
 
   @app.route('/questions/<int:question_id>', methods=['DELETE'])

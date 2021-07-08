@@ -84,7 +84,8 @@ def create_app(test_config=None):
       'success': True,
       'questions': current_questions,
       'totalQuestions': totalQuestions,
-      'categories': category_dict
+      'categories': category_dict,
+      'currentCategory': 'all'
     })
 
   '''

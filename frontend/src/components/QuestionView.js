@@ -28,9 +28,9 @@ class QuestionView extends Component {
       success: (result) => {
         this.setState({
           questions: result.questions,
-          totalQuestions: result.total_questions,
+          totalQuestions: result.totalQuestions,
           categories: result.categories,
-          currentCategory: result.current_category })
+          currentCategory: result.currentCategory })
         return;
       },
       error: (error) => {
@@ -65,8 +65,8 @@ class QuestionView extends Component {
       success: (result) => {
         this.setState({
           questions: result.questions,
-          totalQuestions: result.total_questions,
-          currentCategory: result.current_category })
+          totalQuestions: result.totalQuestions,
+          currentCategory: result.currentCategory })
         return;
       },
       error: (error) => {
@@ -90,8 +90,8 @@ class QuestionView extends Component {
       success: (result) => {
         this.setState({
           questions: result.questions,
-          totalQuestions: result.total_questions,
-          currentCategory: result.current_category })
+          totalQuestions: result.totalQuestions,
+          currentCategory: result.currentCategory })
         return;
       },
       error: (error) => {
